@@ -1,0 +1,28 @@
+def calculate_discount(full_price, discount_percentage):
+  """Calculates the discounted price of an item.
+
+  Args:
+    full_price: The full price of the item, as an integer.
+    discount_percentage: The discount percentage, as an integer.
+
+  Returns:
+    The discounted price of the item, as an integer.
+  """
+
+  # Validate the input parameters.
+  if not isinstance(full_price, int) or full_price < 0:
+    raise ValueError("full_price must be a non-negative integer.")
+  if not isinstance(discount_percentage, int) or discount_percentage < 0 or discount_percentage > 100:
+    raise ValueError("discount_percentage must be an integer between 0 and 100.")
+
+  # Calculate the discounted price.
+  discount_amount = full_price * discount_percentage / 100
+  discounted_price = full_price - discount_amount
+
+  return discounted_price
+full_price = 100
+discount_percentage = 20
+
+discounted_price = calculate_discount(full_price, discount_percentage)
+
+print(discounted_price)
